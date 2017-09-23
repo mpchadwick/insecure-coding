@@ -79,6 +79,55 @@
 					}
 					```
 					</section>
+					<section>
+						<h3>Broken Authentication and Session Management</h3>
+						<p>Application functions related to authentication and session management are often not implemented correctly, allowing attackers to compromise passwords, keys, or session tokens, or to exploit other implementation flaws to assume other users’ identities.</p>
+						<p><em>#2 on 2013 OWASP Top 10</em></p>
+					</section>
+					<section data-markdown>
+						```
+						http://example.com/foologin/?customerId=10
+						```
+					</section>
+					<section>
+						Now I'm logged in as customer 10 😄
+					</section>
+				</section>
+				<!-- 4. Exhibit B -->
+				<section>
+					<section>
+						<h1>Exhibit B</h1>
+					</section>
+					<section data-markdown>
+						```php
+						namespace Foo\ViewQuote\Controller\Quote;
+
+						class Loader
+						{
+						    public function load(RequestInterface $request)
+						    {
+						        $quoteId = $request->getParam('quote_id');
+						        $quote = $this->quoteFactory->create()->load($quoteId);
+						        $this->registry->register('current_quote', $quote);
+
+						        return true;
+						    }
+						}
+						```
+					</section>
+					<section>
+						<h3>Insecure Direct Object Reference</h3>
+						<p>A direct object reference occurs when a developer exposes a reference to an internal implementation object, such as a file, directory, or database key. Without an access control check or other protection, attackers can manipulate these references to access unauthorized data.</p>
+						<p><em>#4 on 2013 OWASP Top 10</em></p>
+					</section>
+					<section data-markdown>
+						```
+						http://example.com/viewquote/?quote_id=10
+						```
+					</section>
+					<section>
+						<p>View customer name, address, phone number, quote items, price, date created for any quote 😎</p>
+					</section>
 				</section>
 			</div>
 		</div>
