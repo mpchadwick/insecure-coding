@@ -38,8 +38,29 @@
 					<li class="fragment">Participant in Magento's Bug Bounty program, built open source security tools</li>
 					</ul>
 				</section>
+				<!-- 3. Setup -->
 				<section>
 					Ladies and gentlemen: the story you are about to hear is true. Only the names have been changed to protect the innocent.
+				</section>
+				<!-- 4. Exhibit A -->
+				<section data-markdown>
+					### Exhibit A
+					```php
+					class Foo_CustomerLogin_IndexController
+						extends Mage_Core_Controller_Front_Action
+					{
+					    public function indexAction()
+					    {
+					        $customerId = $this->getRequest()
+					        	->getParam('customerId');
+					        $session = Mage::getSingleton('customer/session');
+					        $session->start();
+					        $isLoggedIn = $session->isLoggedIn();
+					        $session->loginById($customerId);
+					        $this->_redirectUrl('/customer/account');
+					    }
+					}
+					```
 				</section>
 			</div>
 		</div>
@@ -52,6 +73,7 @@
 			// - https://github.com/hakimel/reveal.js#configuration
 			// - https://github.com/hakimel/reveal.js#dependencies
 			Reveal.initialize({
+				history: true,
 				dependencies: [
 					{ src: 'plugin/markdown/marked.js' },
 					{ src: 'plugin/markdown/markdown.js' },
