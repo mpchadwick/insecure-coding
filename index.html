@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>(in)secure coding</title>
+		<title>(In)Secure Coding</title>
 
 		<link rel="stylesheet" href="css/reveal.css">
 		<link rel="stylesheet" href="css/theme/black.css">
@@ -24,12 +24,16 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<!-- Title -->
+				<!-- 1. Cover -->
 				<section>
 					<h1>(In)secure Coding</h1>
 					<h3>Real world vulnerabilities found while auditing Magento codebases</h3>
 				</section>
-				<!-- 2. Who Am I? -->
+				<!-- 2. Prelude -->
+				<section>
+					Ladies and gentlemen: the story you are about to hear is true. Only the names have been changed to protect the innocent.
+				</section>
+				<!-- 3. Who Am I? -->
 				<section>
 					<h1>Who Am I?</h1>
 					<ul>
@@ -38,13 +42,26 @@
 					<li class="fragment">Participant in Magento's Bug Bounty program, built open source security tools</li>
 					</ul>
 				</section>
-				<!-- 3. Setup -->
+				<!-- 4. Who Am I? -->
 				<section>
-					Ladies and gentlemen: the story you are about to hear is true. Only the names have been changed to protect the innocent.
+					<section>
+						<h3>Why This Talk?</h3>
+						<ul>
+							<li class="fragment">Review vulnerabilities found in real-world Magento code bases</li>
+							<li class="fragment">Understand how this code can be exploited</li>
+							<li class="fragment">Make sure that we don't make the same mistakes</li>
+						</ul>
+					</section>
+					<section>
+						Let's get started...
+					</section>
 				</section>
 				<!-- 4. Exhibit A -->
-				<section data-markdown>
-					### Exhibit A
+				<section>
+					<section>
+						<h1>Exhibit A</h1>
+					</section>
+					<section data-markdown>
 					```php
 					class Foo_CustomerLogin_IndexController
 						extends Mage_Core_Controller_Front_Action
@@ -61,6 +78,7 @@
 					    }
 					}
 					```
+					</section>
 				</section>
 			</div>
 		</div>
