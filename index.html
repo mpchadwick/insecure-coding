@@ -131,7 +131,7 @@
 						```
 					</section>
 					<section>
-						<h3> The Result</h3>
+						<h3>The Result</h3>
 						<p>View customer name, address, phone number, quote items, price, date created for any quote 😎</p>
 					</section>
 				</section>
@@ -172,6 +172,37 @@
 					<section>
 						<h3> The Result</h3>
 						<p>Run any SQL query you'd like against the target 😜</p>
+					</section>
+				</section>
+				<!-- 5. Exhibit D -->
+				<section>
+					<section>
+						<h1>Exhibit D</h1>
+					</section>
+					<section>
+					<h3>The Code</h3>
+					<pre><code class="js">jQuery(document).ready(function(){
+  &lt;?php if ($this->getRequest()->getParam('filter') != ''): ?>
+    checkFilters('
+      &lt;?php echo $this->getRequest()->getParam('filter') ?>
+    ');
+  &lt;?php endif; ?>
+}</code></pre>
+					</section>
+					<section>
+						<h3>(Reflected) XSS</h3>
+						<p>XSS flaws occur whenever an application takes untrusted data and sends it to a web browser without proper validation or escaping. XSS allows attackers to execute scripts in the victim’s browser which can hijack user sessions, deface web sites, or redirect the user to malicious sites.</p>
+						<p><em>#3 on 2013 OWASP Top 10</em></p>
+					</section>
+					<section data-markdown>
+						### Exploitation
+						```
+						https://example.com/shirts?filter=%27);alert(%27xss
+						```
+					</section>
+					<section>
+						<h3>The Result</h3>
+						<p>Run unauthorized scripts during victims session 😘</p>
 					</section>
 				</section>
 			</div>
