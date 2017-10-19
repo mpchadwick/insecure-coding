@@ -142,6 +142,10 @@
 						<h3>The Result</h3>
 						<p>View customer name, address, phone number, quote items, price, date created for any quote 😎</p>
 					</section>
+					<section>
+						<h3>The Fix</h3>
+						<p>Validate that user making request is authorized to view the quote</p>
+					</section>
 				</section>
 				<!-- 5. Exhibit C -->
 				<section>
@@ -174,12 +178,25 @@
 					<section data-markdown>
 						### Exploitation
 						```
-						http://example.com/suggestions/?q=hello%%27);UPDATE%20admin_user%20SET%20firstname%20=%20pwned2%20WHERE%20username%20=%20admin;--
+						http://example.com/suggestions/?q=hello%%27);
+						    UPDATE%20admin_user%20
+						    SET%20firstname%20=%20pwned2%20
+						    WHERE%20username%20=%20admin;--
 						```
 					</section>
 					<section>
 						<h3> The Result</h3>
 						<p>Run any SQL query you'd like against the target 😜</p>
+					</section>
+					<section data-markdown>
+						### The Fix
+						<p>Use framework to escape user input</p>
+						```
+						$q = Mage::app()->getRequest()->getParam('q');
+
+						$suggestions = Mage::getModel('cms/page')
+						    ->addFieldToFilter('title', ['like'= > $q]);
+						```
 					</section>
 				</section>
 				<!-- 5. Exhibit D -->
