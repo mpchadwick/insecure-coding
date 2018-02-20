@@ -11,6 +11,7 @@
 
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
+		<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 
 		<!-- Printing and PDF exports -->
 		<script>
@@ -39,10 +40,10 @@
 					<ul>
 					<li class="fragment">Magento Developer at <a href="https://www.somethingdigital.com/">Something Digital</a> (Magento Enterprise Solution Partner)</li>
 					<li class="fragment">Actively <a href="https://maxchadwick.xyz/blog/">blogging</a> about Magento and other technical topics including security</li>
-					<li class="fragment">Participant in Magento's Bug Bounty program, built open source security tools</li>
+					<li class="fragment">Independent security researcher with over 30 submissions to Magento's bug bounty program</li>
 					</ul>
 				</section>
-				<!-- 4. Who Am I? -->
+				<!-- 4. Why This Talk? -->
 				<section>
 					<section>
 						<h3>Why This Talk?</h3>
@@ -104,7 +105,7 @@
 						</ul>
 					</section>
 				</section>
-				<!-- 4. Exhibit B -->
+				<!-- 5. Exhibit B -->
 				<section>
 					<section>
 						<h1>Exhibit B</h1>
@@ -147,7 +148,7 @@
 						<p>Validate that user making request is authorized to view the quote</p>
 					</section>
 				</section>
-				<!-- 5. Exhibit C -->
+				<!-- 6. Exhibit C -->
 				<section>
 					<section>
 						<h1>Exhibit C</h1>
@@ -199,7 +200,7 @@
 						```
 					</section>
 				</section>
-				<!-- 5. Exhibit D -->
+				<!-- 7. Exhibit D -->
 				<section>
 					<section>
 						<h1>Exhibit D</h1>
@@ -229,6 +230,35 @@
 						<h3>The Result</h3>
 						<p>Run unauthorized scripts during victims session 😘</p>
 					</section>
+					<section data-markdown>
+						### The Fix
+						<p>Escape user input before rendering</p>
+						```
+						echo $this->escapeHtml(
+							$this->getRequest()->getParam('filter')
+						);
+						```
+					</section>
+				</section>
+
+				<!-- 8. Secure Coding  -->
+				<section>
+					<section>
+						<h3><span style="text-decoration: underline">Secure</span> Coding</h1>
+						<ul>
+							<li class="fragment">Invest in cybersecurity training for employees</li>
+							<li class="fragment">Leverage code reviews to check for security issues</li>
+							<li class="fragment">Use automated tools (e.g. phpcs ecg scan)</li>
+							<li class="fragment">Start a bug bounty program</li>
+						</ul>
+					</section>
+				</section>
+
+				<!-- 9. Secure Coding  -->
+				<section>
+					<h1>Thank You</h1>
+					<a href="https://maxchadwick.xyz"><i class="fas fa-link"></i> https://maxchadwick.xyz</a><br>
+					<a href="https://twitter.com/maxpchadwick"><i class="fab fa-twitter"></i> @maxpchadwick</a>
 				</section>
 			</div>
 		</div>
